@@ -84,4 +84,12 @@ public class UserRepositoryTests {
         repo.save(userJane);
     }
 
+    @Test
+    public void testGetUserByEmail() {
+        String email = "abcdef.com";
+        User user = repo.getUserByEmail(email);
+
+        assertThat(user).isNotNull();
+    }
+
 }

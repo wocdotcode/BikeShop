@@ -39,4 +39,13 @@ public class UserService {
         encodePassword(user);
         userRepo.save(user);
     }
+
+    public boolean isEmailUnique(String email){
+        User userByEmail = userRepo.getUserByEmail(email);
+        return userByEmail == null;
+
+    }
+
+
+
 }

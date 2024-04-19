@@ -3,6 +3,7 @@ package com.bikeshop.admin.user;
 
 import com.bikeshop.common.entity.Role;
 import com.bikeshop.common.entity.User;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
@@ -94,5 +96,8 @@ public class UserService {
     }
 
 
+    public void updateUserEnabledStatus(Integer id, boolean enabled){
+        userRepo.updateEnabledStatus(id, enabled);
+    }
 
 }

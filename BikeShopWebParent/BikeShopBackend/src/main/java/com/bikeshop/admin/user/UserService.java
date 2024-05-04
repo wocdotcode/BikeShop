@@ -38,7 +38,7 @@ public class UserService {
         user.setPassword(encodePassword);
     }
 
-    public void save(User user){
+    public User save(User user){
         boolean isUpdatingUser = (user.getId() != null); //updating mode
 
         if (isUpdatingUser){
@@ -53,8 +53,8 @@ public class UserService {
             encodePassword(user);
         }
 
-        encodePassword(user);
-        userRepo.save(user);
+
+       return userRepo.save(user);
     }
 
     public boolean isEmailUnique(Integer id,String email){

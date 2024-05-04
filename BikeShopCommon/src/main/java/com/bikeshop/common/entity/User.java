@@ -132,5 +132,11 @@ public class User {
                 '}';
     }
 
+    @Transient
+    public String getPhotosImagePath() {
 
+        if(id == null || photos == null)
+            return "/images/default_profile2.png";
+        return "/user-photos/" + this.id + "/" + this.photos;
+    }
 }
